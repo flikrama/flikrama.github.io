@@ -13,4 +13,4 @@ I am also a published author in time series/change point detection methodology b
 I've earned a Master's of Science in Engineering from 
 [UT Austin](https://www.utexas.edu/), a Bachelor's in Physics from [Bogazici University](http://www.boun.edu.tr/en_US) and I am pursuing (yet another) Master's degree in [Data Science from UT Austin's Statistics Department](https://ms-datascience.utexas.edu/).
 
-{% include button.html text="My github" icon="github" link="https://github.com/flikrama" color="#0366d6" %} {% include button.html text="My Linkedin" icon="linkedin" link="https://www.linkedin.com/in/likrama/" color="#0e76a8" %}   [**My Resume**](/assets/resume/Fatmir_Likrama.pdf)
+{% include button.html text="Github" icon="github" link="https://github.com/flikrama" color="#0366d6" %} {% include button.html text="Linkedin" icon="linkedin" link="https://www.linkedin.com/in/likrama/" color="#0e76a8" %}   [**Resume**](/assets/resume/Fatmir_Likrama.pdf)
