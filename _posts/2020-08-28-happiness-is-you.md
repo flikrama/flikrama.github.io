@@ -7,10 +7,8 @@ categories:
 - Elastic Net Regression
 - Data Cleaning
 - Data Manipulation
-
+feature_image: 'assets/img/happiness/happy_people.jpg'
 ---
-## Happiness is you
-
 Would you rather be rich or happy? I'd rather be both...and healthy too! 
  
 Many people, organizations and even governments have started looking at happiness as a metric to measure success besides economic indicators.
