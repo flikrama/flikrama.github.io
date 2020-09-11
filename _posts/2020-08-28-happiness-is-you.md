@@ -7,7 +7,7 @@ categories:
 - Elastic Net Regression
 - Data Cleaning
 - Data Manipulation
-feature_image: 'assets/img/happiness/happy_people.jpg'
+feature_image: /assets/img/happiness/happy_people.jpg
 ---
 Would you rather be rich or happy? I'd rather be both...and healthy too! 
  
