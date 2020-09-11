@@ -16,4 +16,4 @@ Retorts have the "cap" and the "cucurbit" made into one. The anbik is also calle
 
 _Originally from [Alembic - Wikipedia](https://en.wikipedia.org/wiki/Alembic)_
 
-{% include button.html text="My github" icon="github" link="https://github.com/flikrama" color="#0366d6" %} {% include button.html text="My Linkedin" icon="linkedin" link="https://www.linkedin.com/in/likrama/" color="#0e76a8" %}  [**Resume**](/assets/resume/Fatmir_Likrama.pdf)
+{% include button.html text="My github" icon="github" link="https://github.com/flikrama" color="#0366d6" %} {% include button.html text="My Linkedin" icon="linkedin" link="https://www.linkedin.com/in/likrama/" color="#0e76a8" %} [**My Resume**](/assets/resume/Fatmir_Likrama.pdf)
