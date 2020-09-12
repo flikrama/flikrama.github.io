@@ -5,7 +5,7 @@ title: Fatmir Likrama
 #excerpt: ""
 ---
 
-I am an engineering professional experienced with technical consulting, project management and applied statistics and now increasingly with data science and machine learning. 
+I am an engineering professional experienced with technical consulting, project management, applied statistics and now increasingly with data science and machine learning. 
 
 I oversaw neural network and clustering algorithm implementation for rock typing in energy software, developed machine learning workflow to Geomechanical modeling and wrote scripts for seamless data transfer from geological to FEM platforms and back. 
 I am also a published author in time series/change point detection methodology besides many Geomechanics applications of the energy industry. 
