@@ -10,12 +10,21 @@ categories:
 feature_image: /assets/img/happiness/happy_people.jpg
 ---
 Would you rather be rich or happy? I'd rather be both...and healthy too! 
+
+![png](/assets/img/happiness/output_74_0.png)
  
 Many people, organizations and even governments have started looking at happiness as a metric to measure success besides economic indicators.
 Being happy is a simple yet extremely profound feeling. It is also hard to define. Happiness Index may seem trivial, but it points to the gaps in the government development policies in each country and one may potentially view the measure as people’s perception of how their governments perform.  The insights from its analysis also helps in pointing out the importance of development in several aspects instead of just narrowly in economic or health indicators.
 
 This work is focused on datasets (from 2015 to 2019) from the World Happiness Report Landmark Survey. Its objective is predicting the happiness score of a country based on independent features and identifying the key variables and potentially their interactions.
-This project was part of the UH SPE Machine Learning Bootcamp and collaborators were myself, Celine Cherian, Miguel Mendoza and Pratik Ghatake. Here goes below:
+
+Turns out we can predict mean happiness score of people in a location with an error of about 0.55 as per the above scoring criteria. Ridge and Lasso gave very similar results with Elastic Net Regression model giving only a slight improvement.
+
+Happiness is affected the most by Economic Wellbeing, followed by Health, Social Support and Freedom. 
+
+Even this simple dataset with not too many features it is not trivial to deal with collinearity or with non-linear effects. 2nd, 3rd and even 4th order polynomial fits were attempted with no improvements. It may be that another method may work better.
+
+This project was part of the UH SPE Machine Learning Bootcamp and collaborators were myself, Celine Cherian, Miguel Mendoza and Pratik Ghatake. Here goes the full work below:
 
 * [Libraries ](#libraries)
 * [Data loading, cleaning and visualizations](#data-loading-cleaning-and-visualizations)
