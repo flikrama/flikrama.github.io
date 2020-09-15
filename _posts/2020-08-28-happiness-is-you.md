@@ -5,8 +5,6 @@ categories:
 - Ridge 
 - Lasso
 - Elastic Net Regression
-- Data Cleaning
-- Data Manipulation
 feature_image: /assets/img/happiness/happy_people.jpg
 ---
 Would you rather be rich or happy? I'd rather be both...and healthy too! 
@@ -14,11 +12,11 @@ Would you rather be rich or happy? I'd rather be both...and healthy too!
 ![png](/assets/img/happiness/output_74_0.png)
  
 Many people, organizations and even governments have started looking at happiness as a metric to measure success besides economic indicators.
-Being happy is a simple yet extremely profound feeling. It is also hard to define. Happiness Index may seem trivial, but it points to the gaps in the government development policies in each country and one may potentially view the measure as people’s perception of how their governments perform.  The insights from its analysis also helps in pointing out the importance of development in several aspects instead of just narrowly in economic or health indicators.
+Being happy is a simple yet extremely profound feeling. It is also hard to define. Nevertheless, its measure may point to the gaps in the government development policies in each country and one may potentially view the measure as people’s perception of how their governments perform.  The insights from its analysis also helps in pointing out the importance of development in several aspects instead of just narrowly in economic indicators.
 
 This work is focused on datasets (from 2015 to 2019) from the World Happiness Report Landmark Survey. Its objective is predicting the happiness score of a country based on independent features and identifying the key variables and potentially their interactions.
 
-Turns out we can predict mean happiness score of people in a location with an error of about 0.55 as per the above scoring criteria. Ridge and Lasso gave very similar results with Elastic Net Regression model giving only a slight improvement.
+Turns out we can predict mean happiness score of people in a location with an error of about 0.55 (much better than baseline) as per the above scoring criteria. Ridge and Lasso gave very similar results with Elastic Net Regression model giving only a slight improvement.
 
 Happiness is affected the most by Economic Wellbeing, followed by Health, Social Support and Freedom. 
 
@@ -29,15 +27,15 @@ This project was part of the UH SPE Machine Learning Bootcamp and collaborators 
 * [Libraries ](#libraries)
 * [Data loading, cleaning and visualizations](#data-loading-cleaning-and-visualizations)
 * [Descriptive Analytics](#Descriptive-Analytics)
-* [Regression Analysis](#regression-analysis)
+* [Analysis](#analysis)
+    * [Baseline Estimate](#baseline-estimate)
     * [Ridge Regression](#Ridge-Regression)
     * [Lasso Regression](#Lasso-Regression)
     * [Elastic Net Regression](#Elastic-Net-Regression)
 * [Summary](#Summary)
 
 
-
-## Libraries <a id='libraries'></a>
+# Libraries <a id='libraries'></a>
 
 
 
@@ -50,10 +48,6 @@ from numpy import NaN as NA
 # Plotting and Visualization
 import matplotlib.pyplot as plt
 import seaborn as sb
-from bubbly.bubbly import bubbleplot
-import plotly.graph_objs as go
-import plotly.express as px
-import plotly.offline as py
 from plotly.offline import init_notebook_mode, iplot
 
 # Analysis 
@@ -65,7 +59,7 @@ from sklearn.linear_model import Ridge, RidgeCV, ElasticNet, LassoCV, LassoLarsC
 from sklearn.metrics import mean_squared_error, r2_score
 ```
 
-### Data loading, cleaning and visualizations <a id='data-loading-cleaning-and-visualizations'></a>
+## Data loading, cleaning and visualizations <a id='data-loading-cleaning-and-visualizations'></a>
 
 
 The United Nations publishes the World Happiness Report every year but years 2015 to 2019 are selected for this analysis. The rankings of the happiness report are based on a Cantril ladder survey. Nationally representative samples of respondents are asked to think of a ladder, with the best possible life for them being a 10, and the worst possible life being a 0. They are then asked to rate their own current lives on that 0 to 10 scale. The report correlates the results with various life factors. There are different fields involved in the dataset including economics, psychology, national statistical figures etc. which are measured on different scales and are used to effectively assess the happiness score of the country. There are a total 782 observations of different countries for the span of 5 years in total with 9 different variables. 
@@ -679,13 +673,11 @@ df2019.head()
 
 ```python
 df2015.drop(['Region','Standard Error','Dystopia Residual'],axis=1, inplace = True) 
-print('columns are dropped!')
 
 df2015.rename(columns = {'Trust (Government Corruption)':'Perceptions of corruption','Country':'Country or Region',
                          'Family':'Social Support','Freedom':'Freedom to make life choices'},inplace = True)
 
 # switch columns "Perceptions of Corruption" and "Generosity"
-df2015.columns
 df2015new = df2015[['Country or Region','Happiness Rank', 'Happiness Score',
 
        'Economy (GDP per Capita)', 'Social Support',
@@ -694,7 +686,6 @@ df2015new = df2015[['Country or Region','Happiness Rank', 'Happiness Score',
 
 # drop columns
 df2016.drop(['Region','Lower Confidence Interval','Upper Confidence Interval','Dystopia Residual'],axis=1, inplace = True) 
-print('columns are dropped!')
 
 # rename columns
 df2016.rename(columns = {'Trust (Government Corruption)':'Perceptions of corruption','Country':'Country or Region',
@@ -706,10 +697,8 @@ df2016new = df2016[['Country or Region', 'Happiness Rank', 'Happiness Score',
        'Economy (GDP per Capita)', 'Social Support',
        'Health (Life Expectancy)', 'Freedom to make life choices','Generosity','Perceptions of corruption']]
 
-
 # drop columns
 df2017.drop(['Whisker.high','Whisker.low','Dystopia.Residual'],axis=1, inplace = True) 
-print('columns are dropped!')
 
 # rename columns
 df2017.rename(columns = {'Trust..Government.Corruption.':'Perceptions of corruption','Country':'Country or Region',
@@ -720,11 +709,10 @@ df2017.rename(columns = {'Trust..Government.Corruption.':'Perceptions of corrupt
 # just needed to rename dataframe for this part
 df2017new = df2017
 
-
 # rename columns
 df2018.rename(columns = {'Overall rank':'Happiness Rank','Country or region':'Country or Region','Score':'Happiness Score',
                          'GDP per capita':'Economy (GDP per Capita)', 'Social support': 'Social Support',
-                         'Healthy life expectancy':'Health (Life Expectancy)'},inplace = True)
+                        'Healthy life expectancy':'Health (Life Expectancy)'},inplace = True)
 
 # switch "Country or region" and "Happiness Rank"
 df2018new = df2018[['Country or Region', 'Happiness Rank', 'Happiness Score','Economy (GDP per Capita)', 
@@ -739,11 +727,6 @@ df2019.rename(columns = {'Overall rank':'Happiness Rank','Country or region':'Co
 df2019new = df2019[['Country or Region', 'Happiness Rank', 'Happiness Score','Economy (GDP per Capita)', 
                     'Social Support','Health (Life Expectancy)', 'Freedom to make life choices','Generosity','Perceptions of corruption']]
 ```
-
-    columns are dropped!
-    columns are dropped!
-    columns are dropped!
-    
 
 **Assigning year to the data (only to remove it later :)):**
 
@@ -1183,7 +1166,7 @@ We're dropping that row with missing data of Perception of Corruption.
 df = df.dropna()
 ```
 
-## Descriptive Analytics <a id='Descriptive-Analytics'></a>
+# Descriptive Analytics <a id='Descriptive-Analytics'></a>
 
 Quickly geting an idea of the overall correlation between the target variable and each input variable. Correlations are sorted in descending order. Thus, those variables at the bottom do not necessarily have the least predictive power; predictive power depends on the absolute value of correlation - generally, the larger the absolute value of correlation, the higher its predictive power.
 
@@ -1360,29 +1343,21 @@ df.corr()
 
 
 
-- Happiness Score, the target variable, has a correlation of 1 with itself (the highest possible value), which is correct.
-- All other variables except Generosity appear to predict the Happiness Score with medium corealtion.
-- The usefulness and independency of the the variable Generosity in predicting the target variable will be checked in feature selection techniques.
-
-And most importantly:
--  **There are many collinear features in this dataset**
-
-
 
 ```python
 plot_1= plt.subplots(figsize=(9.6,11.2))
-sns.heatmap(df.corr(),fmt='d', cmap="copper", linewidths=0.6, square=True,robust=True)
+sb.heatmap(df.corr(),fmt='d', cmap="copper", linewidths=0.6, square=True,robust=True)
 ```
 
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x24225860be0>
+    <matplotlib.axes._subplots.AxesSubplot at 0x19e8aa4b670>
 
 
 
 
-![png](/assets/img/happiness/output_28_1.png)
+![png](/assets/img/happiness/output_27_1.png)
 
 
 And to sum it up let's do a correlogram (dropping the year and happiness rank):
@@ -1400,17 +1375,39 @@ sb.pairplot(df.drop(['Year', 'Happiness Rank'], axis = 1))
 
 
 
-![png](/assets/img/happiness/output_30_1.png)
+![png](/assets/img/happiness/output_29_1.png)
 
 
 **Inferences:**
 
-- Most of the distributions of the variables seems normal.
-- Perceptions of Corruption and Generosity variables have short range of values because the distribtution is slendered and both are slightly right tailed.
-- Other variables except Perceptions of corruption and Generosity are approximately symmetrical.
+- All variables except Generosity appear to predict the Happiness Score with medium correlation
+- The usefulness and independency of the the variable Generosity in predicting the target variable will be checked in feature selection techniques.
+
+And most importantly:
+-  **There are many collinear features in this dataset**
 
 
-## Regression Analysis <a id='regression-analysis'></a>
+#  Analysis <a id='analysis'></a>
+
+## Baseline Estimate<a id='baseline-estimate'></a>
+
+Before any fancy data science or machine learning it's a good idea to establish a baseline against what to compare our results to. What would the error be if we just randomly guesed the happiness score of a country? That's what our analysis should aim to beat.
+
+Let's find the standard deviation of the Happiness Score and then multiply it with 0.67 (area under standard normal distribution curve ~ 0.5); that should give us a rough idea that what a random guess error would be:
+
+
+```python
+df['Happiness Score'].std()*0.67449
+```
+
+
+
+
+    0.7601983240898008
+
+
+
+If our models cannot predict happiness within 0.76 on averaage then they are completely worthless!
 
 **Setting up data for analysis:**
 
@@ -1436,7 +1433,7 @@ X = (X - mean)/std
 X_train, X_test , y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
 ```
 
-### Ridge Regression <a id='Ridge-Regression'></a>
+## Ridge Regression <a id='Ridge-Regression'></a>
 
 
 **Let's define a function to give us root mean square error rmse, with a number of validation groups  = 5:**
@@ -1476,7 +1473,7 @@ plt.ylabel("rmse")
 
 
 
-![png](/assets/img/happiness/output_42_1.png)
+![png](/assets/img/happiness/output_45_1.png)
 
 
 **Best alpha is ~22, but mattering very very little!**
@@ -1510,7 +1507,7 @@ plt.legend(X_train.columns)
 
 
 
-![png](/assets/img/happiness/output_45_1.png)
+![png](/assets/img/happiness/output_48_1.png)
 
 
 
@@ -1559,7 +1556,7 @@ fig.set_size_inches([10, 5])
 ```
 
 
-![png](/assets/img/happiness/output_50_0.png)
+![png](/assets/img/happiness/output_53_0.png)
 
 
 As seen, Economy has the highest effect on happiness followed by almost equally weighed Life Expectancy, Social Support and Freedom. Generosity and Perception of corruption have the least effect.
@@ -1583,12 +1580,12 @@ plt.ylabel('Prediction Error Ridge')
 
 
 
-![png](/assets/img/happiness/output_52_1.png)
+![png](/assets/img/happiness/output_55_1.png)
 
 
 This does not look very good, there appears to be a trend in the residual error.
 
-### Lasso Regression <a id='Lasso-Regression'></a>
+## Lasso Regression <a id='Lasso-Regression'></a>
 
 Trying Lassso similarly as above:
 
@@ -1614,10 +1611,10 @@ plt.ylabel("rmse")
 
 
 
-![png](/assets/img/happiness/output_56_1.png)
+![png](/assets/img/happiness/output_59_1.png)
 
 
-Lasso does not really provide anything useful here. The minimum rmse is obtained with an alpha = 0. This maybe is to be expected since there are few fatures.
+Lasso does not really provide anything useful here. The minimum rmse is obtained with an alpha = 0. This may is expected since there are few fatures.
 
 Let's plot the coefficients with respect to alpha for academic purposes only as this will have no practical consequence.
 
@@ -1649,7 +1646,7 @@ plt.legend(X_train.columns)
 
 
 
-![png](/assets/img/happiness/output_58_1.png)
+![png](/assets/img/happiness/output_61_1.png)
 
 
 If we wanted to reduce the number of features by 2 we could set up alpha ~0.2; this however would increase rmse.
@@ -1696,7 +1693,7 @@ fig.set_size_inches([10, 5])
 ```
 
 
-![png](/assets/img/happiness/output_63_0.png)
+![png](/assets/img/happiness/output_66_0.png)
 
 
 Very similar to Ridge...
@@ -1721,12 +1718,12 @@ plt.ylabel('Prediction Error Lasso')
 
 
 
-![png](/assets/img/happiness/output_65_1.png)
+![png](/assets/img/happiness/output_68_1.png)
 
 
 Again, there appears to be a trend, however slight.
 
-### Elastic Net Regression <a id='Elastic-Net-Regression'></a>
+## Elastic Net Regression <a id='Elastic-Net-Regression'></a>
 
 Let's bring in the big guns and try Elastic Net regression
 
@@ -1796,7 +1793,7 @@ fig.set_size_inches([10, 5])
 ```
 
 
-![png](/assets/img/happiness/output_74_0.png)
+![png](/assets/img/happiness/output_77_0.png)
 
 
 Almost identical to previous!
@@ -1817,10 +1814,10 @@ plt.ylabel('Prediction Error Elastic')
 
 
 
-![png](/assets/img/happiness/output_76_1.png)
+![png](/assets/img/happiness/output_79_1.png)
 
 
-### Summary <a id='Summary'></a>
+## Summary <a id='Summary'></a>
 
 Turns out we can predict mean happiness score of people in a location with an error of about 0.55 as per the above scoring criteria. Ridge and Lasso gave very similar results with Elastic Net Regression model giving only a slight improvement.
 
@@ -1834,6 +1831,3 @@ Till then, prosper, stay healthy and be happy!
 ```python
 
 ```
-
-
-{% include button.html text="Github" icon="github" link="https://github.com/flikrama" color="#0366d6" %} {% include button.html text="Linkedin" icon="linkedin" link="https://www.linkedin.com/in/likrama/" color="#0e76a8" %}   [**Resume**](/assets/resume/Fatmir_Likrama.pdf)
