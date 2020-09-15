@@ -1407,7 +1407,7 @@ df['Happiness Score'].std()*0.67449
 
 
 
-If our models cannot predict happiness within 0.76 on averaage then they are completely worthless!
+If our models cannot predict happiness within 0.76 on average then they are completely worthless!
 
 **Setting up data for analysis:**
 
