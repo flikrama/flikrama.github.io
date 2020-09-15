@@ -3,6 +3,8 @@ title: Fatmir Likrama
 #feature_text:
   
 #excerpt: ""
+
+feature_image: /assets/img/index/Fatmir.png
 ---
 
 I am an engineering professional experienced with technical consulting, project management, applied statistics and now increasingly with data science and machine learning. 
