@@ -106,8 +106,8 @@ navigation_header:
   url: /
 - title: Projects
   url: /projects/
-#- title: Blog
-#  url: /blog/
+- title: Publications
+  url: /publications/
 - title: Search
   url: /search/
 
