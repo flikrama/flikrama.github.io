@@ -81,7 +81,7 @@ encoding: utf-8 # Make sure the encoding is right
 lang: en # Set the site language
 title: "Fatmir Likrama" # Site name or title, also used in jekyll-seo-tag
 #logo: "/assets/logos/logo.svg" # Site logo, also used in jekyll-seo-tag
-description: Welcome # Site description and default description, also used in jekyll-seo-tag
+description: "" # Site description and default description, also used in jekyll-seo-tag
 url: "flikrama.github.io" # Site url, also used in jekyll-seo-tag
 baseurl: ""
 repo: "github.com/flikrama/flikrama.github.io"
