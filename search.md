@@ -1,5 +1,6 @@
 ---
 title: Search
+feature_image: /assets/img/gen/lake_huntsville.jpg
 excerpt: "Search for a page or post you're looking for"
 ---
 

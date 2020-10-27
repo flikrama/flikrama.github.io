@@ -4,7 +4,7 @@ title: Fatmir Likrama
   
 #excerpt: ""
 
-feature_image: /assets/img/index/Fatmir.png
+feature_image: /assets/img/index/Fatmir1.png
 ---
 
 I am an analytics professional experienced with data analysis, technical consulting, project management, statistics and software development within an agile framework. 

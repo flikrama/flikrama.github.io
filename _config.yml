@@ -54,7 +54,7 @@ collections:
     description: "Some projects I've worked on:" # The post list page content
     feature_text: |
      
-    feature_image: "https://picsum.photos/2560/600?image=866"
+    feature_image: "/assets/img/gen/kruja_2.jpg"
 
 # 6. Jekyll collections settings
 defaults:
@@ -62,7 +62,7 @@ defaults:
     scope:
       path: ""
     values:
-      image: "/assets/default-social-image.png" # Default image for sharing
+      image: "/assets/img/index/Fatmir2.png" # Default image for sharing
   -
     scope:
       path: ""
