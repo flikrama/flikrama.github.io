@@ -13,7 +13,6 @@ I have 8 years of experience as a technical analyst/consultant using SQL and Pyt
 
 I oversaw clustering algorithm implementation for rock typing in E&P commercial software, developed machine learning workflow to Geomechanical modeling and wrote scripts for seamless data transfer from geological to FEM platforms and back. 
 
-I've published in time series/change point detection methodology besides many Geomechanics applications in the energy industry. 
 
 I've earned a Master's of Science in Engineering from [UT Austin](https://www.utexas.edu/) and a Bachelor's of Science in Physics from [Bogazici University](http://www.boun.edu.tr/en_US)
 
