@@ -51,7 +51,7 @@ collections:
   posts:
     title: Projects # Needed for Siteleaf
     output: true
-    description: "A small portion of projects I've worked on my own, not covered by data confidentiality agreements:" # The post list page content
+    description: "A small portion of BI/ Data Science projects I've worked on my own, not covered by data confidentiality agreements:" # The post list page content
     feature_text: |
      
     feature_image: "/assets/img/gen/kruja_2.jpg"
