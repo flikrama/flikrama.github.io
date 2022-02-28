@@ -7,7 +7,7 @@ title: Fatmir Likrama
 feature_image: /assets/img/index/Fatmir1.png
 ---
 
-I am a product management, engineering and analytics professional experienced with geomechanics, data analysis, statistics as well as software development.  
+I am a product management, engineering and analytics professional, experienced with geomechanics, data analysis, statistics as well as software development.  
 
 More than 10 years of experience in technical analysis, energy consultancy and  software development bringing expert usage of analytical and BI tools. Scripted with Python and used relational databases throughout my industry experience, in upstream oil and gas as well as medical device and healthcare industries.
 
