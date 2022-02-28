@@ -7,9 +7,9 @@ title: Fatmir Likrama
 feature_image: /assets/img/index/Fatmir1.png
 ---
 
-I am an engineering and analytics professional experienced with data analysis, geomechanics, statistics as well as software development within an agile framework.  
+I am a product management, engineering and analytics professional experienced with geomechanics, data analysis, statistics as well as software development.  
 
-I have more than 10 years of experience in technical analysis, energy consultancy and  software development bringing expert usage of most analytical and BI tools. I've used Python, SQL and git during my whole industry experience. I've worked in upstream oil and gas as well as medical device and healthcare industries.
+More than 10 years of experience in technical analysis, energy consultancy and  software development bringing expert usage of analytical and BI tools. Scripted with Python and used relational databases throughout my industry experience, in upstream oil and gas as well as medical device and healthcare industries.
 
 
 I've earned a Master's of Science in Petroleum Engineering from [UT Austin](https://www.utexas.edu/) and a Bachelor's of Science in Physics from [Bogazici University](http://www.boun.edu.tr/en_US)
